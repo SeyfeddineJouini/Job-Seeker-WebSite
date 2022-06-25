@@ -1,0 +1,72 @@
+.mastheads {
+  margin-bottom: 2rem;
+}
+
+.mastheads-brand {
+  margin-bottom: 0;
+}
+
+.nav-mastheads .nav-link {
+
+  font-weight: bold;
+  color: #80bdff;
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+  position: relative;
+  left: 700px;
+  top: 110px;
+
+}
+
+.nav-mastheads .nav-link:hover,
+.nav-mastheads .nav-link:focus {
+  border-bottom-color: rgba(255,255,255,.25);
+}
+
+.nav-mastheads .nav-link + .nav-link {
+  margin-left: 1rem;
+}
+
+.nav-mastheads .active {
+  color: #ffffff;
+  border-bottom-color: #ffe933;
+  background-color: #007bff;
+}*
+ .mastfoot {
+  color: rgba(255,255,255,.5);
+}
+
+
+/*
+ * Affix and center
+ */
+
+@media (min-width: 40em) {
+  /* Pull out the header and footer */
+  .mastheads {
+    position: fixed;
+    top: 0;
+  }
+  .mastfoot {
+    position: fixed;
+    bottom: 0;
+  }
+  /* Start the vertical centering */
+  .site-wrapper-inner {
+    vertical-align: middle;
+  }
+  /* Handle the widths */
+  .mastheads,
+  .mastfoot,
+  .cover-container {
+    width: 100%; /* Must be percentage or pixels for horizontal alignment */
+  }
+}
+
+@media (min-width: 62em) {
+  .mastheads,
+  .mastfoot,
+  .cover-container {
+    width: 42rem;
+  }
+}

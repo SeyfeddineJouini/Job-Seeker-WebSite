@@ -1,0 +1,21 @@
+@media (min-width: 48em) {
+  .masthead-brand {
+    float: left;
+  }
+  .nav-masthead {
+    position: absolute;
+    top: 50px;
+    left: 600px;
+  }
+}
+.home{
+  position: relative;
+  top: 100px;
+  left: 0;
+}
+.liste{
+  position: absolute;
+  top: 200px;
+  left: 330px;
+}
+

@@ -1,0 +1,16 @@
+.nav-masthead .nav-link {
+
+  font-weight: bold;
+  color: #80bdff;
+  background-color: transparent;
+  border-bottom: .25rem solid transparent;
+  position: relative;
+  right: 10px;
+  top: 50px;
+
+}
+.nav-masthead .active {
+  color: #ffffff;
+  border-bottom-color: #ffe933;
+  background-color: #007bff;
+}

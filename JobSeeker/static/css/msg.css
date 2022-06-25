@@ -1,0 +1,27 @@
+.recu{
+    position: absolute;
+    top: 400px;
+    left: 525px;
+    background-color: #007bff;
+    border: none;
+    color: #ffe561;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 20px 200px;
+    border-radius: 2rem;
+}
+
+.re{
+
+    position: absolute;
+    left: 670px;
+}
+
+.cu{
+
+    position: absolute;
+    left: 590px;
+}
