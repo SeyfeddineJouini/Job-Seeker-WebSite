@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+    body {
+      background-color: #f80039;
+    }
+  </style>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+        <thead class="thead-dark">
+        <tr><th style="background-color: green">التسجيل</th>
+             <th>برنامج التكوين</th>
+            <th>إستمارة التسجيل</th>
+            <th>الفئة</th>
+            <th>الثمن</th>
+            <th>الدورة2</th>
+            <th>الدورة1</th>
+            <th style="background-color: #005cbf ">مجال التكوين</th>
+
+        </tr>
+        </thead>
+    {% for formation in form %}
+        <tr>
+
+            <td>
+                <a href="http://127.0.0.1:8000/inscripar"><span  style="color: green" class="glyphicon glyphicon-pencil" >سجل</span></a>
+            </td>
+           <td>
+              <a href="{{ formation.prog.prog.url}}" class="btn btn-primary btn-sm" target="_blank">programme</a>
+            </td>
+            <td>
+              <a href="{{ formation.doc.pdf.url}}" class="btn btn-primary btn-sm" target="_blank">le fichier</a>
+            </td>
+                <td>{{ formation.categ }}</td>
+                <td>{{ formation.price }}</td>
+                <td>{{ formation.end }}</td>
+                <td>{{ formation.start }}</td>
+            <td>{{ formation.Nom_for }}</td>
+
+        </tr>
+    {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,172 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة مجالات التكوين</title>
+    <link rel = "icon" href =
+"/static/images/logo%20.png"
+        type = "image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/test2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/arabe1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inscbody.css' %}">
+    <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" type="text/css" href="datatables/Buttons-1.4.2/css/buttons.bootstrap4.min.css"/>
+
+
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css">
+<script type="text/javascript" src= "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.12.3.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+  <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+  <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+  <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable({
+        dom: 'Bfrtip',
+      buttons: [
+
+
+          'excel'
+
+    ]
+  },{
+        "language":{
+	"sEmptyTable":     "ليست هناك بيانات متاحة في الجدول",
+	"sLoadingRecords": "جارٍ التحميل...",
+	"sProcessing":   "جارٍ التحميل...",
+	"sLengthMenu":   "أظهر _MENU_ مدخلات",
+	"sZeroRecords":  "لم يعثر على أية سجلات",
+	"sInfo":         "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+	"sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
+	"sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+	"sSearch":       "ابحث:",
+	"oPaginate": {
+		"sFirst":    "الأول",
+		"sPrevious": "السابق",
+		"sNext":     "التالي",
+		"sLast":     "الأخير"
+	},
+	"oAria": {
+		"sSortAscending":  ": تفعيل لترتيب العمود تصاعدياً",
+		"sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
+	}
+	}
+});
+} );
+  </script>
+</head>
+<body>
+
+<div class="banner"></div>
+ <nav class="nav nav-masthead">
+<form action="http://127.0.0.1:8000/homeseekerarabe">
+    <button type="submit"  class="nav-link  " style="height:60px;width:130px;right: 600px">الاستقبال</button>
+</form>
+<form action="http://127.0.0.1:8000/inscripar">
+    <button type="submit"  class="nav-link  " style="height:60px;width:130px;right: 600px">التسجيل</button>
+</form>
+<form action="http://127.0.0.1:8000/showseekerar">
+    <button type="submit"  class="nav-link  active" style="height:60px;width:130px;right: 600px">برنامج التكوين</button>
+</form>
+ </nav>
+<img class="ima" height="40" width="52" style="float:left;position: absolute;right: 10px;top: 5px"  src="{% static 'images/logo .png' %}" >
+<br>
+ <br>
+ <br>
+<br>
+<br>
+<br>
+ <h1 style="color: steelblue">قائمة مجالات التكوين</h1>
+<form action="http://127.0.0.1:8000/listeform/">
+<button type="submit"  class="pdfform"style="background-color:#478bf9;color: white;position: absolute;top: 200px;right: 10px;width: 200px;height:50px">حمل قائمة مجالات التكوين</button>
+</form>
+ <br>
+<table id="examples" class="display" cellspacing="0" width="100%">
+
+    {% for formation in m%}
+        <tr style="color: black">
+            <td style="color: steelblue;font-size: 40px;position: absolute;left: 600px;top: 250px"><right>{{ formation.mois }}</right></td>
+            <td style="color: steelblue;font-size: 40px;position: absolute;left:  800px;top: 250px"><left>{{ formation.annee }}</left></td>
+
+        </tr>
+    {% endfor %}
+    </table>
+<br><br>
+    <table id="example" class="display" cellspacing="0" width="100%">
+        <thead class="thead-dark">
+        <tr><th style="background-color: green ">التسجيل</th>
+             <th style="background-color: #0c5460 ">برنامج التكوين</th>
+            <th style="background-color: #0c5460 ">إستمارة التسجيل</th>
+            <th style="background-color: #0c5460 ">الفئة</th>
+            <th style="background-color: #0c5460 ">الثمن(دت)</th>
+            <th style="background-color: #0c5460 ">الدورة3</th>
+            <th style="background-color: #0c5460 ">الدورة2</th>
+            <th style="background-color: #0c5460 ">الدورة1</th>
+            <th style="background-color: green ">مجال التكوين</th>
+
+        </tr>
+        </thead>
+    {% for formation in form %}
+        {% if formation.actif == True %}
+        <tr style="color: black">
+
+            <td>
+                <a href="http://127.0.0.1:8000/inscripar"><span  style="color: green" class="glyphicon glyphicon-pencil" >سجل</span></a>
+            </td>
+           <td>
+              <a href="{{ formation.prog.prog.url}}" class="btn btn-primary btn-sm" target="_blank">programme</a>
+            </td>
+            <td>
+              <a href="{{ formation.doc.pdf.url}}" class="btn btn-primary btn-sm" target="_blank">le fichier</a>
+            </td>
+                <td>{{ formation.categ }}</td>
+                <td>{{ formation.price }}</td>
+                <td>{{ formation.middle }}</td>
+                <td>{{ formation.end }}</td>
+                <td>{{ formation.start }}</td>
+            <td>{{ formation.Nom_for }}</td>
+
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+
+<a class="ar_homeseeker" href="http://127.0.0.1:8000/showseekerar/" style="color: steelblue;"><i class='fas fa-language' style="color: white">       </i>    -العربيّة-</a>
+<a style="color: steelblue;" class="fr_homeseeker" href="http://127.0.0.1:8000/showseeker/">-fr- </a>
+<div class="contenant" style="position: relative">
+<img class="im" style="height: 300px" src="{% static 'images/barre.jpg' %}" >
+  <div><li><span class="ten">العنوان:</span></li>
+</div>
+    <div><li><span class="eleven">وسائل الاتصال:</span></li>
+</div>
+<div><li><span class="one" style="color: #ffffff;top: 100px"> 17 شارع بلحسن بن شعبان 1005 العمران تونس تونس :📍</span></li>
+
+</div>
+ <div><li><span class="two" style="color: #ffffff;top: 100px">☎ : + 216 71 783 055</span></li>
+</div>
+ <div><li><span class="three" style="color: #ffffff;top: 150px">🖷: + 216 71 781 862</span></li>
+ </div>
+    <><li> <span class="four" style="color: #ffffff;top: 200px;right: 260px">📧 : webcni@cni.tn</span></li>
+
+<tr>
+<td><span style="color: #ffffff;top: 130px" class="locali">Google map:</span> <br/><a class="local" style="top: 180px" href="https://www.google.fr/maps/place/CENTRE+NATIONAL+DE+L'INFORMATIQUE/@36.8129739,10.1631046,17z/data=!3m1!4b1!4m2!3m1!1s0x12fd3386aae7a5f9:0x48d6f4f6afb7d57" target="_blank"><span><img alt="cniGoogle Maps" src="http://www.cni.tn/images/background/67x64xcniGoogle_Maps.png.pagespeed.ic.UJM5aAd8iV.jpg" height="100" width="100"/></span></a></td>
+</tr>
+     </div>
+     <div><li> <span class="five" style="color: steelblue;">💻 .صفحة الواب :</span><span style="color: black;"><a class="six" href="http://www.cni.tn" style="color: mediumvioletred;">CNI.tn .</a></span></li>
+</div>
+     <div><li><span style="color: black;"><a class="height" href="https://www.facebook.com/CNITUNISIA/" style="color: steelblue;"><i class="fab fa-facebook-f" style="color:steelblue"></i>f :CNI المركز الوطني للإعلامية</a></span></li>
+</div>
+</body>
+</html>

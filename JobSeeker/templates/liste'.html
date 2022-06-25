@@ -1,0 +1,45 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css/bootstrap.min.css' %}">
+
+</head>
+<body>
+<br><br>
+<h1 style="color: darkblue;font-size: 16px;"><center>liste formations</center></h1><br><br>
+<table border="1" >
+       <thead style="height: 50px;color: yellowgreen;font-size: 14px;">
+                   <th>formation</th>
+
+            <th>catégorie</th>
+            <th>prix (dt)</th>
+            <th>session1</th>
+            <th>session2</th>
+            <th>session3</th>
+        </thead>
+<tbody style="color: blue;font-size: 12px;">
+{% for formation in formatpdf %}
+        <tr style="height: 30px">
+
+            <td><center>{{ formation.Nom_for }}</center></td>
+            <td ><center>{{ formation.categ }}</center></td>
+            <td><center>{{ formation.price }}</center></td>
+                <td><center>{{ formation.start }}</center></td>
+            <td><center>{{ formation.end }}</center></td>
+        <td><center>{{ formation.middle }}</center></td>
+
+        </tr>
+    {% endfor %}
+</tbody>
+
+    </table>
+<p>pour plus d'informations contactez mr.Ammar Hafedh sur le 71783055 ou bien sur son mobile le 98903860 ou sur son adresse mail: hafedh.ammar@cni.tn</p>
+<p>pour y participer veuillez préparer votre Autorisation fournie et envoyer une copie à travers le fax: 71894255. </p>
+<p style="color: #f80039">Ps: veuillez verifier les dates désignées à chaque formartion.</p>
+
+</body>
+</html>

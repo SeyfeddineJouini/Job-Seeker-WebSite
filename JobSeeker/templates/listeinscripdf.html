@@ -1,0 +1,23 @@
+<h1>liste des inscrits</h1>
+<table border="1">
+       <thead>  <th>nom et prénom</th>
+            <th>numéro de téléphone</th>
+            <th>adresse</th>
+            <th>formation</th>
+            <th>ministère</th>
+            <th>administration</th>
+        </thead>
+<tbody>{% for formation in instpdf %}
+        <tr>
+<td>{{ formation.nom }}</td>
+                <td>{{ formation.num_tel }}</td>
+                <td>{{ formation.adress }}</td>
+                <td>{{ formation.f }}</td>
+                <td>{{ formation.m }}</td>
+                <td>{{ formation.a }}</td>
+
+        </tr>
+    {% endfor %}
+</tbody>
+
+    </table>

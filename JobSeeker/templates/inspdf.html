@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css/bootstrap.min.css' %}">
+</head>
+<body>
+<br><br>
+<h1 style="color: darkblue;font-size: 16px;"><center>liste des inscrits</center></h1><br><br>
+<table border="1">
+       <thead style="height: 50px;color: yellowgreen;font-size: 14px;">
+            <th>nom et prenom</th>
+            <th>numero de telephone</th>
+            <th>adresse</th>
+            <th>formation</th>
+            <th>ministere</th>
+            <th>administration</th>
+        </thead>
+<tbody style="color: blue;font-size: 12px;">
+{% for formation in inspdf %}
+        <tr style="height: 30px">
+
+<td>{{ formation.nom }}</td>
+            <td><center>{{ formation.num_tel }}</center></td>
+            <td><center>{{ formation.adress }}</center></td>
+            <td><center>{{ formation.f }}</center></td>
+            <td><center>{{ formation.m }}</center></td>
+            <td><center>{{ formation.a }}</center></td>
+        </tr>
+    {% endfor %}
+</tbody>
+
+    </table>
+
+</body>
+</html>

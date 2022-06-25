@@ -1,0 +1,85 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Programmes</title>
+    <link rel = "icon" href =
+"/static/images/logo%20.png"
+        type = "image/x-icon">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/test2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/test4.css' %}"> <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/arabe1.css' %}">
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/inscbody.css' %}">
+</head>
+<body>
+ <div class="banner"></div>
+     <a class="ar_homeseeker" href="http://127.0.0.1:8000/addprogar" style="color: steelblue;">-العربيّة-</a>
+<a style="color: steelblue;" class="fr_homeseeker" href="http://127.0.0.1:8000/addprog/">-fr- </a>
+ <nav class="nav nav-masthead">
+<form action="http://127.0.0.1:8000/homeadmin">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">acceuil</button>
+</form>
+<form action="http://127.0.0.1:8000/addfor">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">ajout formation</button>
+</form>
+     <form action="http://127.0.0.1:8000/addcat">
+    <button type="submit"  class="nav-link  "style="height:60px;width:130px;left: -170px">ajout catégorie</button>
+</form>
+<form action="http://127.0.0.1:8000/adddoc">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">ajout fiche d'inscription</button>
+</form>
+<form action="http://127.0.0.1:8000/addprog">
+    <button type="submit"  class="nav-link active"style="height:60px;width:130px;left: -170px">ajout programme</button>
+</form>
+
+      <form action="http://127.0.0.1:8000/showfor" class="show1">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">les formations</button>
+</form>
+<form action="http://127.0.0.1:8000/listedoc">
+    <button type="submit"  class="nav-link"style="height:60px;width:130px;left: -170px">les fichiers d'inscription</button>
+</form>
+<form action="http://127.0.0.1:8000/listeprog">
+    <button type="submit"  class="nav-link"style="height:60px;width:130px;left: -170px">les programmes </button>
+</form>
+<form action="http://127.0.0.1:8000/showinscrip">
+    <button type="submit"   class="nav-link"style="height:60px;width:130px;left: -170px">les inscriptions</button>
+</form>
+ </nav>
+<img class="ima" height="40" width="52" style="float:left;position: absolute;right: 10px;top: 5px"  src="{% static 'images/logo .png' %}" >
+
+
+    <div id="banner1"><div/>
+
+
+
+
+     <div><li> <span class="five" style="color: steelblue;">💻 .website :</span><span style="color: black;"><a class="six" href="http://www.cni.tn" style="color: mediumvioletred;">CNI.tn .</a></span></li>
+</div>
+     <div><li><span style="color: black;"><a class="height" href="https://www.facebook.com/CNITUNISIA/" style="color: steelblue;"><i class="fab fa-facebook-f" style="color:steelblue"></i>f :CNI المركز الوطني للإعلامية</a></span></li>
+</div>
+<br><br><br>{% if messages %}
+     {% for message in messages %}
+     <div class="alert alert-success" role="alert">
+     {{ message }}
+     </div>
+
+     {% endfor %}
+ {% endif %}<br><br><br>
+<h2 style="color: steelblue">Gestion des programmes</h2><br><br>
+
+        <form method="post" enctype="multipart/form-data"style="color: steelblue">
+            {% csrf_token %}
+
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Importer doc</button>
+
+        </form>
+</body>
+</html>

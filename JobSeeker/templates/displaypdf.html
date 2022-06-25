@@ -1,0 +1,23 @@
+<h1>liste formations</h1>
+<table border="1">
+       <thead>
+            <th>الفئة</th>
+            <th>الثمن</th>
+            <th>الدورة2</th>
+            <th>الدورة1</th>
+            <th style="background-color: #005cbf ">مجال التكوين</th>
+        </thead>
+<tbody>{% for formation in formatpdf %}
+        <tr>
+
+                <td>{{ formation.categ }}</td>
+                <td>{{ formation.price }}</td>
+                <td>{{ formation.end }}</td>
+                <td>{{ formation.start }}</td>
+            <td>{{ formation.Nom_for }}</td>
+
+        </tr>
+    {% endfor %}
+</tbody>
+
+    </table>

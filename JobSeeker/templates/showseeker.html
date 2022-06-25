@@ -1,0 +1,149 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>liste des formations</title>
+    <link rel = "icon" href =
+"/static/images/logo%20.png"
+        type = "image/x-icon">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/test2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/arabe1.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inscbody.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.10.16/css/dataTables.bootstrap4.min.css"/>
+<link rel="stylesheet" type="text/css" href="datatables/Buttons-1.4.2/css/buttons.bootstrap4.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css">
+<script type="text/javascript" src= "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.12.3.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+  <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+  <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+  <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+ <script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable({
+        dom: 'Bfrtip',
+      buttons: [
+
+
+          'excel'
+
+    ]
+  });
+} );
+  </script>
+
+</head>
+<body>
+
+<div class="banner" ></div>
+ <nav class="nav nav-masthead">
+<form action="http://127.0.0.1:8000/homeseeker">
+    <button type="submit"  class="nav-link  " style="height:60px;width:130px;right: 600px">acceuil</button>
+</form>
+<form action="http://127.0.0.1:8000/inscription">
+    <button type="submit"  class="nav-link  " style="height:60px;width:130px;right: 600px">inscription</button>
+</form>
+<form action="http://127.0.0.1:8000/showseeker">
+    <button type="submit"  class="nav-link  active"style="height:60px;width:130px;right: 600px">les formations</button>
+</form>
+ </nav>
+<img class="ima" height="40" width="52" style="float:left;position: absolute;right: 10px;top: 5px"  src="{% static 'images/logo .png' %}" >
+<br>
+ <br>
+ <br>
+
+<br>
+<br>
+<br>
+ <h1 style="color: steelblue">liste des formations</h1>
+<form action="http://127.0.0.1:8000/listeform/">
+<button type="submit"  class="pdfform"style="background-color:#478bf9;color: white;position: absolute;top: 200px;right: 10px;width: 200px;height:50px">ouvrir la liste en PDF</button>
+</form>
+ <br>
+    <table id="examples" class="display" cellspacing="0" width="100%">
+
+    {% for formation in m%}
+        <tr style="color: black">
+            <td style="color: steelblue;font-size: 40px;position: absolute;left: 600px;top: 250px"><right>{{ formation.mois }}</right></td>
+            <td style="color: steelblue;font-size: 40px;position: absolute;left:  800px;top: 250px"><left>{{ formation.annee }}</left></td>
+
+        </tr>
+    {% endfor %}
+    </table><table id="example" class="display" cellspacing="0" width="100%">
+<br><br>
+        <thead class="thead-dark" >
+        <tr>
+            <th style="background-color: green ">la formation</th>
+            <th style="background-color: #0c5460 ">session 1</th>
+            <th style="background-color: #0c5460 ">session 2</th>
+            <th style="background-color: #0c5460 ">session 3</th>
+            <th style="background-color: #0c5460 ">prix</th>
+            <th style="background-color: #0c5460 ">catégorie</th>
+            <th style="background-color: #0c5460 ">fichier d'inscription</th>
+            <th style="background-color: #0c5460 ">Le programme</th>
+            <th style="background-color: green">Inscription</th>
+        </tr>
+        </thead>
+    {% for formation in form %}
+        {%if formation.actif == True %}
+        <tr style="color: black">
+            <td>{{ formation.Nom_for }}</td>
+                <td>{{ formation.start }}</td>
+                <td>{{ formation.end }}</td>
+                <td>{{ formation.middle }}</td>
+                <td>{{ formation.price }}</td>
+                <td>{{ formation.categ }}</td>
+                <td>
+              <a href="{{ formation.prog.prog.url}}" class="btn btn-primary btn-sm" target="_blank">programme</a>
+            </td>
+            <td>
+              <a href="{{ formation.doc.pdf.url}}" class="btn btn-primary btn-sm" target="_blank">Ouvrir</a>
+            </td>
+
+            <td>
+                <a href="/inscription/"><span style="color: forestgreen" class="glyphicon glyphicon-pencil" >S'inscrire</span></a>
+            </td>
+        </tr>
+        {% endif %}
+    {% endfor %}
+    </table>
+
+
+<a class="ar_homeseeker" href="http://127.0.0.1:8000/showseekerar/" style="color: steelblue;"><i class='fas fa-language' style="color: white">       </i>    -العربيّة-</a>
+<a style="color: steelblue;" class="fr_homeseeker" href="http://127.0.0.1:8000/showseeker/">-fr- </a><div class="contenant" style="position: relative">
+<img class="im" style="height: 300px" src="{% static 'images/barre.jpg' %}" >
+  <div><li><span class="ten">Coordonnées:</span></li>
+</div>
+    <div><li><span class="eleven">Contact:</span></li>
+</div>
+<div><li><span class="one" style="color: #ffffff;top: 100px">📍 : 17, rue Belhassen Ben Chaabane, 1005 El Omrane, Tunis Tunisie.</span></li>
+</div>
+ <div><li><span class="two" style="color: #ffffff;top: 100px">☎ : + 216 71 783 055</span></li>
+</div>
+ <div><li><span class="three" style="color: #ffffff;top: 150px">🖷: + 216 71 781 862</span></li>
+ </div>
+    <><li> <span class="four" style="color: #ffffff;top: 200px;right: 260px">📧 : webcni@cni.tn</span></li>
+
+<tr>
+<td><span style="color: #ffffff;top: 130px" class="locali">Google map:</span> <br/><a class="local" style="top: 180px" href="https://www.google.fr/maps/place/CENTRE+NATIONAL+DE+L'INFORMATIQUE/@36.8129739,10.1631046,17z/data=!3m1!4b1!4m2!3m1!1s0x12fd3386aae7a5f9:0x48d6f4f6afb7d57" target="_blank"><span><img alt="cniGoogle Maps" src="http://www.cni.tn/images/background/67x64xcniGoogle_Maps.png.pagespeed.ic.UJM5aAd8iV.jpg" height="100" width="100"/></span></a></td>
+</tr>
+     </div>
+  <div><li> <span class="five" style="color: steelblue;">💻 .website :</span><span style="color: black;"><a class="six" href="http://www.cni.tn" style="color: mediumvioletred;">CNI.tn .</a></span></li>
+</div>
+     <div><li><span style="color: black;"><a class="height" href="https://www.facebook.com/CNITUNISIA/" style="color: steelblue;"><i class="fab fa-facebook-f" style="color:steelblue"></i>f :CNI المركز الوطني للإعلامية</a></span></li>
+</div>
+</body>
+</html>

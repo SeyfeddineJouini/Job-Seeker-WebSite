@@ -1,0 +1,148 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة التسجيلات</title>
+    <link rel = "icon" href =
+"/static/images/logo%20.png"
+        type = "image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/inscbody.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/test2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/menu.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/arabe1.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'css/exportpdf.css' %}">
+    <link rel="stylesheet" type="text/css" href="datatables/Buttons-1.4.2/css/buttons.bootstrap4.min.css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.4.2/css/buttons.dataTables.min.css">
+<script type="text/javascript" src= "https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+      <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.html5.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/buttons/1.4.2/js/buttons.print.min.js"></script>
+      <script src="//code.jquery.com/jquery-1.12.3.js"></script>
+  <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/buttons/1.2.2/js/dataTables.buttons.min.js"></script>
+  <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/pdfmake.min.js"></script>
+  <script src="//cdn.rawgit.com/bpampuch/pdfmake/0.1.18/build/vfs_fonts.js"></script>
+  <script src="//cdn.datatables.net/buttons/1.2.2/js/buttons.html5.min.js"></script>
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable({
+        dom: 'Bfrtip',
+      buttons: [
+
+
+          'excel'
+
+    ]
+  },{
+        "language":{
+	"sEmptyTable":     "ليست هناك بيانات متاحة في الجدول",
+	"sLoadingRecords": "جارٍ التحميل...",
+	"sProcessing":   "جارٍ التحميل...",
+	"sLengthMenu":   "أظهر _MENU_ مدخلات",
+	"sZeroRecords":  "لم يعثر على أية سجلات",
+	"sInfo":         "إظهار _START_ إلى _END_ من أصل _TOTAL_ مدخل",
+	"sInfoEmpty":    "يعرض 0 إلى 0 من أصل 0 سجل",
+	"sInfoFiltered": "(منتقاة من مجموع _MAX_ مُدخل)",
+	"sSearch":       "ابحث:",
+	"oPaginate": {
+		"sFirst":    "الأول",
+		"sPrevious": "السابق",
+		"sNext":     "التالي",
+		"sLast":     "الأخير"
+	},
+	"oAria": {
+		"sSortAscending":  ": تفعيل لترتيب العمود تصاعدياً",
+		"sSortDescending": ": تفعيل لترتيب العمود تنازلياً"
+	}
+	}
+});
+} );
+  </script>
+</head>
+<body>
+ <div class="banner"></div>
+<a class="ar_homeseeker" href="http://127.0.0.1:8000/showinscripar" style="color: steelblue;">-العربيّة-</a>
+<a style="color: steelblue;" class="fr_homeseeker" href="http://127.0.0.1:8000/showinscrip/">-fr- </a>
+    <nav class="nav nav-masthead">
+<form action="http://127.0.0.1:8000/homeadminarabe/">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">الاستقبال</button>
+</form>
+<form action="http://127.0.0.1:8000/addforar">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px;left: -170px">اضافة مجالات التكوين</button>
+</form>
+     <form action="http://127.0.0.1:8000/addcatar">
+    <button type="submit"  class="nav-link  "style="height:60px;width:130px;left: -170px">اضافة الفئات</button>
+</form>
+<form action="http://127.0.0.1:8000/adddocar">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">إضافة استمارة التسجيل</button>
+</form>
+<form action="http://127.0.0.1:8000/addprogar">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">اضافة البرامج</button>
+</form>
+
+      <form action="http://127.0.0.1:8000/showforar" class="show1">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">مجالات التكوين</button>
+</form>
+<form action="http://127.0.0.1:8000/listeprogar/">
+    <button type="submit"  class="nav-link "style="height:60px;width:130px;left: -170px">قائمة البرامج</button>
+</form>
+<form action="http://127.0.0.1:8000/listedocar">
+    <button type="submit"  class="nav-link"style="height:60px;width:130px;left: -170px">استمارات التسجيل</button>
+</form>
+
+<form action="http://127.0.0.1:8000/showinscripar">
+    <button type="submit"   class="nav-link active "style="height:60px;width:130px;left: -170px">التسجيلات</button>
+</form>
+ </nav>
+<img class="ima" height="40" width="52" style="float:left;position: absolute;right: 10px;top: 5px"  src="{% static 'images/logo .png' %}" >
+
+<br><br><br><br><br><br>
+
+<H1 style="color: steelblue">قائمة التسجيلات </H1>
+ <form action="http://127.0.0.1:8000/listeinscrip/">
+<button type="submit"  class="pdfform"style="color: steelblue">حمل قائمة مجالات المسجلين</button>
+</form>
+<br>
+
+<table id="example" class="display" cellspacing="0" width="100%">
+        <thead class="thead-dark">
+        <tr>
+            <th style="background-color: forestgreen">عملية</th>
+
+            <th style="background-color: #0c5460 ">الادارة</th>
+            <th style="background-color: #0c5460 ">الوزارة</th>
+            <th style="background-color: #0c5460 ">مجال التكوين</th>
+            <th style="background-color: #0c5460 ">البريد الإلكتروني</th>
+            <th style="background-color: #0c5460 ">الهاتف</th>
+            <th style="background-color: forestgreen">الاسم و اللقب</th>
+
+
+        </tr>
+        </thead>
+    {% for formation in form %}
+        <tr style="color: black">
+
+            <td><a href="/deleteinar/{{ formation.id }}" class="btn btn-danger">إزالة</a></td>
+                <td>{{ formation.a }}</td>
+                <td>{{ formation.m }}</td>
+                <td>{{ formation.f }}</td>
+                <td>{{ formation.adress }}</td>
+                <td>{{ formation.num_tel }}</td>
+            <td>{{ formation.nom }}</td>
+
+
+        </tr>
+    {% endfor %}
+    </table>
+    <div><li> <span class="five" style="color: steelblue;">💻 .صفحة الواب :</span><span style="color: black;"><a class="six" href="http://www.cni.tn" style="color: mediumvioletred;">CNI.tn .</a></span></li>
+</div>
+    <div><li><span style="color: black;"><a class="height" href="https://www.facebook.com/CNITUNISIA/" style="color: steelblue;"><i class="fab fa-facebook-f" style="color:steelblue"></i>f :CNI المركز الوطني للإعلامية</a></span></li>
+</div>
+</body>
+</html>

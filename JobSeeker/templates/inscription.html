@@ -1,0 +1,122 @@
+{% load static %}
+{% load crispy_forms_tags%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>inscription</title>
+    <link rel = "icon" href =
+"/static/images/logo%20.png"
+        type = "image/x-icon">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/page.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/test2.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/test3.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/test4.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/arabe1.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/inscbody.css' %}">
+</head>
+<body >
+<div class="banner"></div>
+
+  <a class="ar_homeseeker" href="http://127.0.0.1:8000/inscripar" style="color: steelblue;"><i class='fas fa-language' style="color: white">       </i>    -العربيّة-</a>
+<a style="color: steelblue;" class="fr_homeseeker" href="http://127.0.0.1:8000/inscription/">-fr-</a>
+ <nav class="nav nav-masthead">
+<form action="http://127.0.0.1:8000/homeseeker">
+    <button type="submit"  class="nav-link  " style="height:60px;width:130px">acceuil</button>
+</form>
+<form action="http://127.0.0.1:8000/inscription">
+    <button type="submit"  class="nav-link active " style="height:60px;width:130px">inscription</button>
+</form>
+<form action="http://127.0.0.1:8000/showseeker">
+    <button type="submit"  class="nav-link  "style="height:60px;width:130px">les formations</button>
+</form>
+ </nav>
+
+
+<br>
+<br>{% if messages %}
+     {% for message in messages %}
+     <div class="alert alert-success" role="alert">
+     {{ message }}
+     </div>
+
+     {% endfor %}
+ {% endif %}
+<br>
+<br>
+<br>
+<br>
+<h2 style="color: steelblue">Inscription</h2>
+<form method="POST"class="post-form" style="color: steelblue" >
+    {% csrf_token %}
+     <div class="row">
+      <div class="col-6">
+    {{ form.nom|as_crispy_field }}
+      </div>
+      <div class="col-5">
+    {{ form.num_tel|as_crispy_field }}
+      </div>
+      </div>
+     <div class="row">
+      <div class="col-6">
+    {{ form.adress|as_crispy_field }}
+      </div>
+      <div class="col-5">
+    {{ form.f|as_crispy_field }}
+      </div>
+      </div>
+      <div ><br>
+<div class="row">
+<div class="col-6">
+              {{ form.a|as_crispy_field }}
+      </div>
+        </div><br></div>
+<div>
+    <button type="submit" class="save_btn" style="
+    position: absolute;
+    top: 430px;
+    background-color: #ffe561;
+    border: none;
+    color: #007bff;
+    padding: 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 20px 200px;
+    border-radius: 2rem;">ajouter</button>
+    </div>
+    </form>
+
+    <div class="contenant">
+<img class="im" src="http://www.cni.tn/images/background/xfooter-graph2.jpg.pagespeed.ic.1D7nReReSk.jpg" >
+<div class="copyright" style="float: left; margin-top: -20px;color: white">Copyright © 2016 Centre National de l'Informatique tous droits réservés</div>
+<div><li><span class="one" style="color: #ffffff; font-size: 15px; line-height: 23px;">📍 : 17, rue Belhassen Ben Chaabane, 1005 El Omrane, Tunis Tunisie.</span></li>
+</div>
+         <div><li><span class="ten" >Coordonnées:</span></li>
+</div>
+        <div><li><span class="eleven">Contact:</span></li>
+</div>
+ <div><li><span class="two" style="color: #ffffff;">☎ : + 216 71 783 055</span></li>
+</div>
+ <div><li><span class="three" style="color: #ffffff;">🖷: + 216 71 781 862</span></li>
+ </div>
+    <div><li> <span class="four" style="color: #ffffff;">📧 : webcni@cni.tn</span></li>
+</div>
+     <div><li> <span class="five" style="color: steelblue;">💻 .website :</span><span style="color: black;"><a class="six" href="http://www.cni.tn" style="color: mediumvioletred;">CNI.tn .</a></span></li>
+</div>
+     <div><li><span style="color: black;"><a class="height" href="https://www.facebook.com/CNITUNISIA/" style="color: steelblue;"><i class="fab fa-facebook-f" style="color:steelblue"></i>f :CNI المركز الوطني للإعلامية</a></span></li>
+</div>
+<tr>
+<td><span style="color: #ffffff;" class="locali">Google map:</span> <br/><a class="local" href="https://www.google.fr/maps/place/CENTRE+NATIONAL+DE+L'INFORMATIQUE/@36.8129739,10.1631046,17z/data=!3m1!4b1!4m2!3m1!1s0x12fd3386aae7a5f9:0x48d6f4f6afb7d57" target="_blank"><span><img alt="cniGoogle Maps" src="http://www.cni.tn/images/background/67x64xcniGoogle_Maps.png.pagespeed.ic.UJM5aAd8iV.jpg" height="100" width="100"/></span></a></td>
+</tr>
+     </div>
+
+</form>
+
+</body>
+</html>
